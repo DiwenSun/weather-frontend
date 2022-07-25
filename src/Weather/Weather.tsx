@@ -144,7 +144,7 @@ class Weather extends React.Component<any,IState> {
                     <Descriptions.Item label="| Weather Condition: ">{this.state.data?.current.condition.text}</Descriptions.Item>
                     <Descriptions.Item label="| temperature: ">{this.state.data?.current.temp_c}</Descriptions.Item>
                     <Descriptions.Item label="| wind speed: ">{this.state.data?.current.wind_kph}</Descriptions.Item>
-                    <Descriptions.Item label="| wind directon: ">{this.state.data?.current.wind_dir}</Descriptions.Item>
+                    <Descriptions.Item label="| wind direction: ">{this.state.data?.current.wind_dir}</Descriptions.Item>
                     <Descriptions.Item label="| humidity: ">{this.state.data?.current.humidity}</Descriptions.Item>
                 </Descriptions>
 
