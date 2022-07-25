@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Form, Input, Table} from "antd";
+import {Button, Descriptions, Form, Input, Table} from "antd";
 import {fetchData} from "../request/request";
 
 
@@ -10,19 +10,56 @@ interface IState{
 }
 
 interface WeatherData {
-    Location: JSON;
-    Current: JSON;
+    location: Location;
+    current: Current;
     forecast: Forecast;
 }
 
 interface Forecast {
-    forecastday: Forecastday[];
+    forecastday: ForecastDay[];
 }
 
-interface Forecastday {
+interface ForecastDay {
     date: Date;
     date_epoch: EpochTimeStamp;
     day: Day;
+}
+
+interface Location {
+    name: string;
+    region: string;
+    country: string;
+    lat: number;
+    lon: number;
+    tz_id: string;
+    localtime_epoch: EpochTimeStamp;
+    localtime: Date;
+}
+
+interface Current {
+    last_updated_epoch: EpochTimeStamp;
+    last_updated: Date;
+    condition: Condition
+    temp_c: number;
+    temp_f: number;
+    is_day: number;
+    wind_mph: number;
+    wind_kph: number;
+    wind_degree: number;
+    wind_dir: string;
+    pressure_mb: number;
+    pressure_in: number;
+    precip_mm: number;
+    precip_in: number;
+    humidity: number;
+    cloud: number;
+    feelslike_c: number;
+    feelslike_f: number;
+    vis_km: number;
+    vis_miles: number;
+    uv: number;
+    gust_mph: number;
+    gust_kph: number;
 }
 
 interface Day {
@@ -43,7 +80,14 @@ interface Day {
     daily_chance_of_rain: number;
     daily_will_it_snow: number;
     daily_chance_of_snow: number;
+    condition: Condition
     uv: number;
+}
+
+interface Condition {
+    text: string;
+    icon: string;
+    code: number
 }
 
 class Weather extends React.Component<any,IState> {
@@ -90,41 +134,54 @@ class Weather extends React.Component<any,IState> {
                     </Form.Item>
                 </Form>
 
-                <Table<Forecastday>
+                <Descriptions title={"Location Info:"}>
+                    <Descriptions.Item label="| name: ">{this.state.data?.location.name}</Descriptions.Item>
+                    <Descriptions.Item label="| region: ">{this.state.data?.location.region}</Descriptions.Item>
+                </Descriptions>
+
+                <Descriptions title={"Current Info: "}>
+                    <Descriptions.Item label="| Weather Condition: ">{this.state.data?.current.condition.text}</Descriptions.Item>
+                    <Descriptions.Item label="| temperature: ">{this.state.data?.current.temp_c}</Descriptions.Item>
+                    <Descriptions.Item label="| wind speed: ">{this.state.data?.current.wind_kph}</Descriptions.Item>
+                    <Descriptions.Item label="| wind directon: ">{this.state.data?.current.wind_dir}</Descriptions.Item>
+                    <Descriptions.Item label="| humidity: ">{this.state.data?.current.humidity}</Descriptions.Item>
+                </Descriptions>
+
+                <Table<ForecastDay>
                     id={"WTable"}
                     dataSource={this.state.data?.forecast.forecastday}
                 >
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="date"
                         title={"| Date: |"}
                         dataIndex="date"
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="date"
                         title={"| Time: |"}
                         dataIndex="date_epoch"
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="average temperature"
                         title={"| Average temperature: |"}
                         dataIndex={['day', 'avgtemp_c']}
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="max temperature"
                         title={"| Max temperature: |"}
                         dataIndex={['day', 'maxtemp_c']}
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="min temperature"
                         title={"| Min temperature: |"}
                         dataIndex={['day', 'mintemp_c']}
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="chance rain"
                         title={"| Chance of rain: |"}
                         dataIndex={['day', 'daily_chance_of_rain']}
                     />
-                    <Column<Forecastday>
+                    <Column<ForecastDay>
                         key="chance snow"
                         title={"| Chance of snow: |"}
                         dataIndex={['day', 'daily_chance_of_snow']}
