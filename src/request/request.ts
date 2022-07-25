@@ -7,7 +7,7 @@ export const instance = axios.create({
     baseURL: WeatherUrl,
 });
 
-export const fetchData = async (zip: string) => {
+export const fetchWeatherData = async (zip: string) => {
     const result = await instance.get<any>(`${zip}`);
     return result;
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Descriptions, Form, Input, Table} from "antd";
-import {fetchData} from "../request/request";
+import {fetchWeatherData} from "../request/request";
 
 
 const { Column } = Table;
@@ -100,10 +100,15 @@ class Weather extends React.Component<any,IState> {
     render() {
         const onFinish = (values: any) => {
             console.log('Success:', values);
-            fetchData(values.zipcode).then(res => {
-                console.log(res.data)
-                this.setState(res.data)
-            })
+            fetchWeatherData(values.zipcode) // values.{form item input name}
+                .then(res => {
+                    console.log(res.data)
+                    this.setState(res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                    alert(err)
+                })
         };
 
         const onFinishFailed = (errorInfo: any) => {
