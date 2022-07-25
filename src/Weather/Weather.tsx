@@ -137,6 +137,7 @@ class Weather extends React.Component<any,IState> {
                 <Descriptions title={"Location Info:"}>
                     <Descriptions.Item label="| name: ">{this.state.data?.location.name}</Descriptions.Item>
                     <Descriptions.Item label="| region: ">{this.state.data?.location.region}</Descriptions.Item>
+                    <Descriptions.Item label="| local time: ">{this.state.data?.location.localtime.toString()}</Descriptions.Item>
                 </Descriptions>
 
                 <Descriptions title={"Current Info: "}>
@@ -155,11 +156,6 @@ class Weather extends React.Component<any,IState> {
                         key="date"
                         title={"| Date: |"}
                         dataIndex="date"
-                    />
-                    <Column<ForecastDay>
-                        key="date"
-                        title={"| Time: |"}
-                        dataIndex="date_epoch"
                     />
                     <Column<ForecastDay>
                         key="average temperature"
