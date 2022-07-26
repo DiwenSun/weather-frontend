@@ -7,7 +7,10 @@ export const instance = axios.create({
     baseURL: WeatherUrl,
 });
 
+class IState implements IState{
+}
+
 export const fetchWeatherData = async (zip: string) => {
-    const result = await instance.get<any>(`${zip}`);
+    const result = await instance.get<IState>(`${zip}`);
     return result;
 };
