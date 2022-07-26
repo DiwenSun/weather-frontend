@@ -103,7 +103,7 @@ class Weather extends React.Component<any,IState> {
             fetchWeatherData(values.zipcode) // values.{form item input name}
                 .then(res => {
                     console.log(res.data)
-                    this.setState(res.data)
+                    this.setState(res.data) // setState( {field:value} ) <==> setState(Object)
                 })
                 .catch(err => {
                     console.log(err)
