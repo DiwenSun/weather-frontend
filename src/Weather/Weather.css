@@ -1,10 +1,13 @@
 
 body{
-    padding: 10%;
+    padding: 0px;
     text-align: center;
+    background-image: url(../images/bg-pattern-gray-diamond.gif);
+    background-repeat: repeat;
 }
 
 .Weather {
+    color: #CCC;
     alignment: center;
     text-align: center;
     font-family: "Palatino Linotype", "Book Antiqua";
