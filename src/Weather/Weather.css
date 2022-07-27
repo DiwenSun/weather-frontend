@@ -20,9 +20,16 @@ body{
     text-align: center;
 }
 
-.table:hover {
-    padding-left: 5%;
-    padding-right: 5%;
+.table {
+    padding: 10px;
+    vertical-align:middle;
+    align-items:center;
     alignment: center;
     text-align: center;
+}
+
+.table:hover {
+    color: #61dafb;
+    padding-left: 5%;
+    padding-right: 5%;
 }
