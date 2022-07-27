@@ -1,5 +1,6 @@
 
 body{
+    margin:0px;
     padding: 0px;
     text-align: center;
     background-image: url(../images/bg-pattern-gray-diamond.gif);
@@ -14,11 +15,13 @@ body{
 }
 
 .description:hover{
+    color: #61dafb;
     alignment: center;
     text-align: center;
 }
 
 .table:hover {
+    margin-left: 15%;
     alignment: center;
     text-align: center;
 }
