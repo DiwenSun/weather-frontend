@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Descriptions, Form, Input, Table} from "antd";
 import {fetchWeatherData} from "../request/request";
+import "./Weather.css";
 
+const {Column} = Table;
 
-const { Column } = Table;
-
-interface IState{
-    data?:WeatherData
+interface IState {
+    data?: WeatherData
 }
 
 interface WeatherData {
@@ -90,7 +90,7 @@ interface Condition {
     code: number
 }
 
-class Weather extends React.Component<any,IState> {
+class Weather extends React.Component<any, IState> {
 
     constructor(props: any, context: any) {
         super(props, context);
@@ -116,46 +116,65 @@ class Weather extends React.Component<any,IState> {
         };
 
         return (
-            <div className="Weather">
+            <div className={"Weather"}>
                 <Form
                     name="basic"
-                    labelCol={{ span: 8 }}
-                    wrapperCol={{ span: 16 }}
+                    labelCol={{span: 8}}
+                    wrapperCol={{span: 16}}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >
                     <Form.Item
                         label="Input Zipcode"
                         name="zipcode"
-                        rules={[{ required: true, message: 'Please input your zipcode!' }]}
+                        rules={[{required: true, message: 'Please input your zipcode!'}]}
                     >
-                        <Input />
+                        <Input/>
                     </Form.Item>
 
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                    <Form.Item wrapperCol={{offset: 8, span: 16}}>
                         <Button type="primary" htmlType="submit">
                             Get Weather Data
                         </Button>
                     </Form.Item>
                 </Form>
+                <br/>
 
-                <Descriptions title={"Location Info:"}>
-                    <Descriptions.Item label="| name: ">{this.state.data?.location.name}</Descriptions.Item>
-                    <Descriptions.Item label="| region: ">{this.state.data?.location.region}</Descriptions.Item>
-                    <Descriptions.Item label="| local time: ">{this.state.data?.location.localtime.toString()}</Descriptions.Item>
-                </Descriptions>
+                {/*<Descriptions className={"description"} title={"Location Info:"} layout={'horizontal'} bordered={false}>*/}
+                {/*    <Descriptions.Item label="| town: ">{this.state.data?.location.name}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| region: ">{this.state.data?.location.region}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| local time: ">{this.state.data?.location.localtime.toString()}</Descriptions.Item>*/}
+                {/*</Descriptions>*/}
 
-                <Descriptions title={"Current Info: "}>
-                    <Descriptions.Item label="| Weather Condition: ">{this.state.data?.current.condition.text}</Descriptions.Item>
-                    <Descriptions.Item label="| temperature: ">{this.state.data?.current.temp_c}</Descriptions.Item>
-                    <Descriptions.Item label="| wind speed: ">{this.state.data?.current.wind_kph}</Descriptions.Item>
-                    <Descriptions.Item label="| wind direction: ">{this.state.data?.current.wind_dir}</Descriptions.Item>
-                    <Descriptions.Item label="| humidity: ">{this.state.data?.current.humidity}</Descriptions.Item>
-                </Descriptions>
+                <div className={"description"}>
+                    <label>Location Info: </label>
+                    <li>town: {this.state.data?.location.name}</li>
+                    <li>region: {this.state.data?.location.region}</li>
+                    <li>local time: {this.state.data?.location.localtime.toString()}</li>
+                </div>
+                <br/>
 
-                <Table<ForecastDay>
-                    id={"WTable"}
-                    dataSource={this.state.data?.forecast.forecastday}
+                {/*<Descriptions className={"description"} title={"Current Info: "} layout={'horizontal'} bordered={false}>*/}
+                {/*    <Descriptions.Item label="| Weather Condition: ">{this.state.data?.current.condition.text}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| temperature: ">{this.state.data?.current.temp_c}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| wind speed: ">{this.state.data?.current.wind_kph}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| wind direction: ">{this.state.data?.current.wind_dir}</Descriptions.Item>*/}
+                {/*    <Descriptions.Item label="| humidity: ">{this.state.data?.current.humidity}</Descriptions.Item>*/}
+                {/*</Descriptions>*/}
+
+                <div className={"description"}>
+                    <label>Current Info: </label>
+                    <li>Weather Condition: {this.state.data?.current.condition.text}</li>
+                    <li>temperature: {this.state.data?.current.temp_c}</li>
+                    <li>wind speed: {this.state.data?.current.wind_kph}</li>
+                    <li>wind direction: {this.state.data?.current.wind_dir}</li>
+                    <li>humidity: {this.state.data?.current.humidity}</li>
+                </div>
+                <br/>
+
+                <Table<ForecastDay> className={"table"}
+                                    id={"WTable"}
+                                    dataSource={this.state.data?.forecast.forecastday}
                 >
                     <Column<ForecastDay>
                         key="date"

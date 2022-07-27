@@ -1,0 +1,21 @@
+
+body{
+    padding: 10%;
+    text-align: center;
+}
+
+.Weather {
+    alignment: center;
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua";
+}
+
+.description:hover{
+    alignment: center;
+    text-align: center;
+}
+
+.table:hover {
+    alignment: center;
+    text-align: center;
+}
