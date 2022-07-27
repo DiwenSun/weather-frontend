@@ -21,7 +21,7 @@ body{
 }
 
 .table:hover {
-    margin-left: 15%;
+    padding: 15%;
     alignment: center;
     text-align: center;
 }
