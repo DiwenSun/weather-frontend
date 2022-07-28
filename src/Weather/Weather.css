@@ -3,15 +3,32 @@ body{
     margin:0px;
     padding: 0px;
     text-align: center;
-    background-image: url(../images/bg-pattern-gray-diamond.gif);
+    /*background-image: url(../images/bg-pattern-gray-diamond.gif);*/
+    background-image: url(../images/bg-yellow-block.png);
     background-repeat: repeat;
 }
 
 .Weather {
-    color: #CCC;
+    /*color: #CCC;*/
     alignment: center;
     text-align: center;
     font-family: "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.form {
+    position: relative;
+    margin: 1% auto auto auto;
+    padding: 1%;
+    width: 500px;
+    height: 250px;
+}
+
+.description {
+    position: relative;
+    margin: 1% auto auto auto;
+    padding: 1%;
+    width: 1000px;
+    height: 250px;
 }
 
 .description:hover{
@@ -29,5 +46,6 @@ body{
 }
 
 .table:hover {
-    color: #61dafb;
+    color: red;
+    font-size: medium;
 }
