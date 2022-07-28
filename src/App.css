@@ -29,6 +29,8 @@
 }
 
 .clicks {
+  position: relative;
+  margin: 10% auto auto auto;
   color: #F33;
 }
 

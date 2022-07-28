@@ -11,7 +11,7 @@ body{
     color: #CCC;
     alignment: center;
     text-align: center;
-    font-family: "Palatino Linotype", "Book Antiqua";
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
 .description:hover{
@@ -22,8 +22,9 @@ body{
 
 .table {
     position: relative;
-    padding-left: 15%;
-    padding-right: 15%;
+    margin: 5% auto auto auto;
+    width: 1000px;
+    height: 250px;
 }
 
 .table:hover {

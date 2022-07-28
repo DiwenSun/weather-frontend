@@ -142,7 +142,7 @@ class Weather extends React.Component<any, IState> {
                 </div>
                 <br/>
 
-                <div className={"description"}>
+                <div className={"description"} style={{display: this.state.data ? 'block' : 'none'}}>
                     <li>Location Info: </li>
                     <p>town: {this.state.data?.location.name}</p>
                     <p>region: {this.state.data?.location.region}</p>
@@ -150,7 +150,7 @@ class Weather extends React.Component<any, IState> {
                 </div>
                 <br/>
 
-                <div className={"description"}>
+                <div className={"description"} style={{display: this.state.data ? 'block' : 'none'}}>
                     <li>Current Info: </li>
                     <Image src={this.state.data?.current.condition.icon}/>
                     <p>Weather Condition: {this.state.data?.current.condition.text}</p>
@@ -161,40 +161,52 @@ class Weather extends React.Component<any, IState> {
                 </div>
                 <br/>
 
-                <div className={"table"}>
+                <div className={"table"} style={{display: this.state.data ? 'block' : 'none'}}>
                     <li>Future Info: </li>
+                    <br/>
                     <Table<ForecastDay>
                         id={"WTable"}
                         dataSource={this.state.data?.forecast.forecastday}
                     >
                         <Column<ForecastDay>
                             key="date"
-                            title={"| Date: |"}
+                            title={" Date: "}
                             dataIndex="date"
                         />
                         <Column<ForecastDay>
+                            key="weather"
+                            title={" Weather: "}
+                            dataIndex={['day', 'condition', 'text']}
+                        />
+                        <Column<ForecastDay>
+                            key="icon"
+                            title={" "}
+                            dataIndex={['day', 'condition', 'icon']}
+                            render={(dataIndex) => <Image src={dataIndex}/>}
+                        />
+                        <Column<ForecastDay>
                             key="average temperature"
-                            title={"| Average temperature: |"}
+                            title={" Average temperature: "}
                             dataIndex={['day', 'avgtemp_c']}
                         />
                         <Column<ForecastDay>
                             key="max temperature"
-                            title={"| Max temperature: |"}
+                            title={" Max temperature: "}
                             dataIndex={['day', 'maxtemp_c']}
                         />
                         <Column<ForecastDay>
                             key="min temperature"
-                            title={"| Min temperature: |"}
+                            title={" Min temperature: "}
                             dataIndex={['day', 'mintemp_c']}
                         />
                         <Column<ForecastDay>
                             key="chance rain"
-                            title={"| Chance of rain: |"}
+                            title={" Chance of rain: "}
                             dataIndex={['day', 'daily_chance_of_rain']}
                         />
                         <Column<ForecastDay>
                             key="chance snow"
-                            title={"| Chance of snow: |"}
+                            title={" Chance of snow: "}
                             dataIndex={['day', 'daily_chance_of_snow']}
                         />
                     </Table>
