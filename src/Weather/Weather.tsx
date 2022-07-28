@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Descriptions, Form, Input, Table} from "antd";
+import {Button, Descriptions, Form, Input, Table, Image} from "antd";
 import {fetchWeatherData} from "../request/request";
 import "./Weather.css";
 
@@ -166,6 +166,7 @@ class Weather extends React.Component<any, IState> {
 
                 <div className={"description"}>
                     <label>Current Info: </label>
+                    <Image src={this.state.data?.current.condition.icon}/>
                     <li>Weather Condition: {this.state.data?.current.condition.text}</li>
                     <li>temperature: {this.state.data?.current.temp_c}</li>
                     <li>wind speed: {this.state.data?.current.wind_kph}</li>
