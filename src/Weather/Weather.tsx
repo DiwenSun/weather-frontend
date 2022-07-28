@@ -149,10 +149,10 @@ class Weather extends React.Component<any, IState> {
                 {/*</Descriptions>*/}
 
                 <div className={"description"}>
-                    <label>Location Info: </label>
-                    <li>town: {this.state.data?.location.name}</li>
-                    <li>region: {this.state.data?.location.region}</li>
-                    <li>local time: {this.state.data?.location.localtime.toString()}</li>
+                    <li>Location Info: </li>
+                    <p>town: {this.state.data?.location.name}</p>
+                    <p>region: {this.state.data?.location.region}</p>
+                    <p>local time: {this.state.data?.location.localtime.toString()}</p>
                 </div>
                 <br/>
 
@@ -165,17 +165,18 @@ class Weather extends React.Component<any, IState> {
                 {/*</Descriptions>*/}
 
                 <div className={"description"}>
-                    <label>Current Info: </label>
+                    <li>Current Info: </li>
                     <Image src={this.state.data?.current.condition.icon}/>
-                    <li>Weather Condition: {this.state.data?.current.condition.text}</li>
-                    <li>temperature: {this.state.data?.current.temp_c}</li>
-                    <li>wind speed: {this.state.data?.current.wind_kph}</li>
-                    <li>wind direction: {this.state.data?.current.wind_dir}</li>
-                    <li>humidity: {this.state.data?.current.humidity}</li>
+                    <p>Weather Condition: {this.state.data?.current.condition.text}</p>
+                    <p>temperature: {this.state.data?.current.temp_c}</p>
+                    <p>wind speed: {this.state.data?.current.wind_kph}</p>
+                    <p>wind direction: {this.state.data?.current.wind_dir}</p>
+                    <p>humidity: {this.state.data?.current.humidity}</p>
                 </div>
                 <br/>
 
                 <div className={"table"}>
+                    <li>Future Info: </li>
                     <Table<ForecastDay>
                         id={"WTable"}
                         dataSource={this.state.data?.forecast.forecastday}
