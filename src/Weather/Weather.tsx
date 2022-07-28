@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Descriptions, Form, Input, Table, Image} from "antd";
+import {Button, Form, Input, Table, Image} from "antd";
 import {fetchWeatherData} from "../request/request";
 import "./Weather.css";
 
@@ -142,12 +142,6 @@ class Weather extends React.Component<any, IState> {
                 </div>
                 <br/>
 
-                {/*<Descriptions className={"description"} title={"Location Info:"} layout={'horizontal'} bordered={false}>*/}
-                {/*    <Descriptions.Item label="| town: ">{this.state.data?.location.name}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| region: ">{this.state.data?.location.region}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| local time: ">{this.state.data?.location.localtime.toString()}</Descriptions.Item>*/}
-                {/*</Descriptions>*/}
-
                 <div className={"description"}>
                     <li>Location Info: </li>
                     <p>town: {this.state.data?.location.name}</p>
@@ -155,14 +149,6 @@ class Weather extends React.Component<any, IState> {
                     <p>local time: {this.state.data?.location.localtime.toString()}</p>
                 </div>
                 <br/>
-
-                {/*<Descriptions className={"description"} title={"Current Info: "} layout={'horizontal'} bordered={false}>*/}
-                {/*    <Descriptions.Item label="| Weather Condition: ">{this.state.data?.current.condition.text}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| temperature: ">{this.state.data?.current.temp_c}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| wind speed: ">{this.state.data?.current.wind_kph}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| wind direction: ">{this.state.data?.current.wind_dir}</Descriptions.Item>*/}
-                {/*    <Descriptions.Item label="| humidity: ">{this.state.data?.current.humidity}</Descriptions.Item>*/}
-                {/*</Descriptions>*/}
 
                 <div className={"description"}>
                     <li>Current Info: </li>
