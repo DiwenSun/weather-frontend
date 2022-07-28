@@ -21,15 +21,11 @@ body{
 }
 
 .table {
-    padding: 10px;
-    vertical-align:middle;
-    align-items:center;
-    alignment: center;
-    text-align: center;
+    position: relative;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .table:hover {
     color: #61dafb;
-    padding-left: 5%;
-    padding-right: 5%;
 }

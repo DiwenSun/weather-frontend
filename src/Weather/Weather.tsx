@@ -117,27 +117,29 @@ class Weather extends React.Component<any, IState> {
 
         return (
             <div className={"Weather"}>
-                <Form
-                    name="basic"
-                    labelCol={{span: 8}}
-                    wrapperCol={{span: 16}}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                >
-                    <Form.Item
-                        label="Input Zipcode"
-                        name="zipcode"
-                        rules={[{required: true, message: 'Please input your zipcode!'}]}
+                <div>
+                    <Form
+                        name="basic"
+                        labelCol={{span: 8}}
+                        wrapperCol={{span: 16}}
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
                     >
-                        <Input/>
-                    </Form.Item>
-
-                    <Form.Item wrapperCol={{offset: 8, span: 16}}>
-                        <Button type="primary" htmlType="submit">
-                            Get Weather Data
-                        </Button>
-                    </Form.Item>
-                </Form>
+                        <Form.Item
+                            label="Input Zipcode"
+                            name="zipcode"
+                            rules={[{required: true, message: 'Please input your zipcode!'}]}
+                        >
+                            <Input/>
+                        </Form.Item>
+                        <br/>
+                        <Form.Item wrapperCol={{offset: 8, span: 16}}>
+                            <Button type="primary" htmlType="submit">
+                                Get Weather Data
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </div>
                 <br/>
 
                 {/*<Descriptions className={"description"} title={"Location Info:"} layout={'horizontal'} bordered={false}>*/}
@@ -172,41 +174,43 @@ class Weather extends React.Component<any, IState> {
                 </div>
                 <br/>
 
-                <Table<ForecastDay> className={"table"}
-                                    id={"WTable"}
-                                    dataSource={this.state.data?.forecast.forecastday}
-                >
-                    <Column<ForecastDay>
-                        key="date"
-                        title={"| Date: |"}
-                        dataIndex="date"
-                    />
-                    <Column<ForecastDay>
-                        key="average temperature"
-                        title={"| Average temperature: |"}
-                        dataIndex={['day', 'avgtemp_c']}
-                    />
-                    <Column<ForecastDay>
-                        key="max temperature"
-                        title={"| Max temperature: |"}
-                        dataIndex={['day', 'maxtemp_c']}
-                    />
-                    <Column<ForecastDay>
-                        key="min temperature"
-                        title={"| Min temperature: |"}
-                        dataIndex={['day', 'mintemp_c']}
-                    />
-                    <Column<ForecastDay>
-                        key="chance rain"
-                        title={"| Chance of rain: |"}
-                        dataIndex={['day', 'daily_chance_of_rain']}
-                    />
-                    <Column<ForecastDay>
-                        key="chance snow"
-                        title={"| Chance of snow: |"}
-                        dataIndex={['day', 'daily_chance_of_snow']}
-                    />
-                </Table>
+                <div className={"table"}>
+                    <Table<ForecastDay>
+                        id={"WTable"}
+                        dataSource={this.state.data?.forecast.forecastday}
+                    >
+                        <Column<ForecastDay>
+                            key="date"
+                            title={"| Date: |"}
+                            dataIndex="date"
+                        />
+                        <Column<ForecastDay>
+                            key="average temperature"
+                            title={"| Average temperature: |"}
+                            dataIndex={['day', 'avgtemp_c']}
+                        />
+                        <Column<ForecastDay>
+                            key="max temperature"
+                            title={"| Max temperature: |"}
+                            dataIndex={['day', 'maxtemp_c']}
+                        />
+                        <Column<ForecastDay>
+                            key="min temperature"
+                            title={"| Min temperature: |"}
+                            dataIndex={['day', 'mintemp_c']}
+                        />
+                        <Column<ForecastDay>
+                            key="chance rain"
+                            title={"| Chance of rain: |"}
+                            dataIndex={['day', 'daily_chance_of_rain']}
+                        />
+                        <Column<ForecastDay>
+                            key="chance snow"
+                            title={"| Chance of snow: |"}
+                            dataIndex={['day', 'daily_chance_of_snow']}
+                        />
+                    </Table>
+                </div>
             </div>
         );
     }
