@@ -169,6 +169,12 @@ class Weather extends React.Component<any, IState> {
                         dataSource={this.state.data?.forecast.forecastday}
                     >
                         <Column<ForecastDay>
+                            key="icon"
+                            title={" "}
+                            dataIndex={['day', 'condition', 'icon']}
+                            render={(dataIndex) => <Image src={dataIndex}/>}
+                        />
+                        <Column<ForecastDay>
                             key="date"
                             title={" Date: "}
                             dataIndex="date"
@@ -177,12 +183,6 @@ class Weather extends React.Component<any, IState> {
                             key="weather"
                             title={" Weather: "}
                             dataIndex={['day', 'condition', 'text']}
-                        />
-                        <Column<ForecastDay>
-                            key="icon"
-                            title={" "}
-                            dataIndex={['day', 'condition', 'icon']}
-                            render={(dataIndex) => <Image src={dataIndex}/>}
                         />
                         <Column<ForecastDay>
                             key="average temperature"
