@@ -22,7 +22,8 @@ body{
 
 .table {
     position: relative;
-    margin: 5% auto auto auto;
+    margin: 1% auto auto auto;
+    padding: 1%;
     width: 1000px;
     height: 250px;
 }
