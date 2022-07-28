@@ -152,7 +152,7 @@ class Weather extends React.Component<any, IState> {
 
                 <div className={"description"} style={{display: this.state.data ? 'block' : 'none'}}>
                     <li>Current Info: </li>
-                    <Image src={this.state.data?.current.condition.icon}/>
+                    <Image preview={false} src={this.state.data?.current.condition.icon}/>
                     <p>Weather Condition: {this.state.data?.current.condition.text}</p>
                     <p>temperature: {this.state.data?.current.temp_c}</p>
                     <p>wind speed: {this.state.data?.current.wind_kph}</p>
@@ -172,7 +172,7 @@ class Weather extends React.Component<any, IState> {
                             key="icon"
                             title={" "}
                             dataIndex={['day', 'condition', 'icon']}
-                            render={(dataIndex) => <Image src={dataIndex}/>}
+                            render={(dataIndex) => <Image preview={false} src={dataIndex}/>}
                         />
                         <Column<ForecastDay>
                             key="date"
@@ -181,7 +181,7 @@ class Weather extends React.Component<any, IState> {
                         />
                         <Column<ForecastDay>
                             key="weather"
-                            title={" Weather: "}
+                            title={" Weather Condition: "}
                             dataIndex={['day', 'condition', 'text']}
                         />
                         <Column<ForecastDay>
